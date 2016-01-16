@@ -49,11 +49,55 @@ red, pink, purple, yellow, and has a getter method to read the color.
 ```ruby
 class Ghost
   def initialize
-    @color = %w(red pink purple yellow).select
+    @color = %w(red pink purple yellow).sample
   end
 
   def color
     @color
   end
+end
+```
+
+### Pacman class
+
+Our Pacman class dosen't have to be very robust. We only need to handle
+who actions: eating ghosts and balls. We should also consider some
+attributes, such as points and lives.
+
+Take a moment to think about how we should structure our Pacman class,
+and maybe start writing some methods.
+
+```ruby
+class Pacman
+  def initialize
+    @points, @extra_lives, @power_time = 0, 2, 0
+  end
+
+  def eat(something)
+      something.class = Ball ? eat_ball(something) : eat_ghost(something)
+  end  
+
+  def eat_ball(ball)
+    @points += 1000 if ball.ball_type == "regular"
+    @power_time = 10 if ball.ball_type == "super"
+  end
+
+  def eat_ghost
+    raise StandardError.new("What is that????") unless ghost.class == Ghost
+    if @power_time > 0
+      @points += 250000
+    else
+      die
+    end
+
+    def die
+      @lives -= 1
+      game_over if @lives < 0
+    end
+
+    def game_over
+        100000.times { puts "!!!!!!!!!!!!!!!!!!!!!!! You Got #{points}!!!!!!!!!
+        !!!!!!!!!!!!!!!GAME OVER!!!!!!!!!!!!!!!!!!!!!!!"}
+    end
 end
 ```
