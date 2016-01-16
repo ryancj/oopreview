@@ -1,6 +1,6 @@
 class Ball
   #constructor method
-  def initialize
+  def initialize(ball_type='regular')
 
   end
 

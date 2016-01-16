@@ -11,7 +11,8 @@ Pacman class, whose attributes we shall discuss below.
 Create a class 'Ball' with a 'ball_type' attribute. Knowing that
 'ball_type' will only ever be 'regular' or 'super'.
 
-Let's start out by creating a ball class
+Let's start out by creating a ball class:
+
 ```ruby
 class Ball
   def initialize
@@ -19,6 +20,23 @@ class Ball
 
   def ball_type
     'regular'
+  end
+end
+```
+
+Now, I'd really like to be able to initialize new ball objects with a 'ball_type'.
+So, let's go ahead and add an optional 'ball_type' param to the initialize method
+We can make it optional by adding a default value. Let's make it default to "regular"
+
+We should also initialize an instance variable, so our getter method can return a
+dynamic value.
+
+```ruby
+class Ball
+  def initialize
+  end
+
+  def ball_type
   end
 end
 ```
