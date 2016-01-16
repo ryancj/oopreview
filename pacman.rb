@@ -17,7 +17,7 @@ class Pacman
   end
 
   def eat_ghost(ghost)
-    raise StandardError.new("Don't feed me that!!!!") unless ghost.class == Ghost
+    raise PacmanErrors::BadFoodError.new("Don't feed me that!!!!") unless ghost.class == Ghost
     super_time > 0 ? @points += 250000 : die
   end
 
@@ -29,6 +29,10 @@ class Pacman
   def game_over
     10000.times { puts "!!!!!!!!!!!!!!!!!POINTS:#{@points}!!!!!!!!!GAMEOVER!!!!!!!!!"}
   end
+end
 
-
+module PacmanErrors
+  class BadFoodError < StandardError; end
+  class ThatAintNoGhost < BadFoodError; end
+  class LoLWhat; end
 end
