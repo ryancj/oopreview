@@ -41,3 +41,19 @@ class Ball
   end
 end
 ```
+
+### Ghost class
+Let's create a ghost class that initializes with a random color of :
+red, pink, purple, yellow, and has a getter method to read the color.
+
+```ruby
+class Ghost
+  def initialize
+    @color = %w(red pink purple yellow).select
+  end
+
+  def color
+    @color
+  end
+end
+```
