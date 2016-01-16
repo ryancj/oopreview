@@ -12,7 +12,7 @@ Create a class 'Ball' with a 'ball_type' attribute. Knowing that
 'ball_type' will only ever be 'regular' or 'super'.
 
 Let's start out by creating a ball class
-''' ruby
+```ruby
 class Ball
   def initialize
   end
