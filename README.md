@@ -11,16 +11,14 @@ Pacman class, whose attributes we shall discuss below.
 Create a class 'Ball' with a 'ball_type' attribute. Knowing that
 'ball_type' will only ever be 'regular' or 'super'.
 
-Let's start out by creating a ball class - default ball type of regular.
+Let's start out by creating a ball class.
 
 ```ruby
 class Ball
-  def initialize(ball_type = "regular")
-    @ball_type = ball_type.downcase == "regular" ? "regular" : "super"
+  def initialize
   end
 
   def ball_type
-    'regular'
   end
 end
 ```
@@ -34,10 +32,12 @@ dynamic value.
 
 ```ruby
 class Ball
-  def initialize
+  def initialize(ball_type = "regular")
+    @ball_type = ball_type.downcase == "regular" ? "regular" : "super"
   end
 
   def ball_type
+    'regular'
   end
 end
 ```
